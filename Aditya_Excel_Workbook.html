@@ -1,0 +1,269 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Aditya Excel Workbook</title><style>
+*{box-sizing:border-box}html,body{margin:0;padding:0;width:100%}body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f8;color:#172033;line-height:1.65}
+body.dark{background:#0a1120;color:#e7edf8}
+header{width:100%;background:linear-gradient(120deg,#081733,#123b7a);color:#fff;padding:44px 18px 66px;text-align:center}
+.mono{width:76px;height:76px;margin:0 auto 14px;border-radius:22px;background:linear-gradient(135deg,#ffd966,#ff8a00);color:#20160a;display:flex;align-items:center;justify-content:center;font-size:34px;font-weight:900}
+.dedication{display:inline-block;background:rgba(255,255,255,.14);padding:8px 18px;border-radius:999px;font-size:13.5px;font-weight:700;margin-bottom:14px}
+.dedication b{color:#ffd966}
+h1{margin:0;font-size:clamp(26px,6vw,46px)}h1 span{color:#ffd966}
+header p{max-width:800px;margin:12px auto 0;font-size:16px;opacity:.92}
+.badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.badges span{background:rgba(255,255,255,.15);padding:8px 14px;border-radius:999px;font-size:12.5px;font-weight:700}
+.toolbar{width:100%;background:#fff;padding:12px;position:sticky;top:0;z-index:50;box-shadow:0 6px 18px rgba(0,0,0,.08)}
+body.dark .toolbar{background:#101a2e}
+.toolbar-inner{max-width:1100px;margin:auto;display:flex;gap:8px;flex-wrap:wrap}
+.search{flex:1;min-width:200px}
+input,textarea{width:100%;padding:12px;border-radius:12px;border:1px solid #d7dfea;font-size:15px}
+body.dark input,body.dark textarea{background:#0d1729;border-color:#26344f;color:#e7edf8}
+button{cursor:pointer;border:none;font-weight:700}
+.theme-btn{background:#0b1f3a;color:#fff;padding:11px 15px;border-radius:12px}
+.reset-btn{background:#f5b301;color:#20160a;padding:11px 15px;border-radius:12px}
+.nav{max-width:1100px;margin:14px auto;padding:0 14px;display:flex;gap:7px;flex-wrap:wrap;justify-content:center}
+.nav-chip{background:#fff;border:1px solid #dbe3ef;padding:9px 13px;border-radius:999px;font-size:12.5px;color:#172033}
+body.dark .nav-chip{background:#152238;border-color:#26344f;color:#dbe6f7}
+.nav-chip.active{background:#1d4ed8;color:#fff;border-color:#1d4ed8}
+main{width:100%;max-width:1100px;margin:auto;padding:8px 14px 40px}
+.lesson{display:none;background:#fff;border-radius:18px;padding:20px;box-shadow:0 10px 30px rgba(15,31,61,.08);margin-bottom:18px}
+body.dark .lesson{background:#101a2e}
+.lesson.active{display:block;animation:fade .3s}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1}}
+.lesson-top{display:flex;gap:14px;align-items:center;border-bottom:1px solid #e5eaf3;padding-bottom:14px;margin-bottom:16px}
+body.dark .lesson-top{border-color:#22304b}
+.icon{width:52px;height:52px;border-radius:14px;background:#e8f0ff;display:flex;align-items:center;justify-content:center;font-size:24px}
+body.dark .icon{background:#182742}
+h2{margin:0;color:#0b1f3a;font-size:clamp(20px,4vw,28px)}
+body.dark h2{color:#fff}
+.lesson-top p{margin:4px 0 0;color:#5c6a82;font-size:14px}
+body.dark .lesson-top p{color:#9fb2d1}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0}
+.card{background:#f7f9fd;border:1px solid #e3eaf5;border-radius:14px;padding:16px}
+body.dark .card{background:#152238;border-color:#22304b}
+.card h3,.card h4{margin:0 0 6px;color:#1d4ed8}
+.profile-card{display:flex;gap:14px;align-items:center;background:#f2f7ff;border:1px solid #dbe7fb;border-radius:18px;padding:18px;margin:14px 0}
+body.dark .profile-card{background:#152238;border-color:#26344f}
+.avatar{width:60px;height:60px;border-radius:18px;background:linear-gradient(135deg,#ffd966,#ff8a00);color:#20160a;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;margin:14px 0;font-size:14px;min-width:420px}
+body.dark table{background:#101a2e}
+th{background:#1d4ed8;color:#fff;padding:11px;text-align:left}
+td{padding:10px;border-bottom:1px solid #e6ebf4}
+body.dark td{border-color:#22304b}
+tr:nth-child(even){background:#f7f9fd}
+body.dark tr:nth-child(even){background:#152238}
+.tip{background:#e8f7ee;border-left:5px solid #22a35b;padding:12px;border-radius:10px;margin:14px 0}
+.note{background:#fff5d6;border-left:5px solid #f5b301;padding:12px;border-radius:10px;margin:14px 0}
+.example{background:#e9f1ff;border-left:5px solid #1d4ed8;padding:12px;border-radius:10px;margin:14px 0}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:14px 0}
+.step{background:#f7f9fd;border:1px solid #e3eaf5;border-radius:14px;padding:14px}
+body.dark .step{background:#152238;border-color:#22304b}
+.tool{background:#f7f9fd;border:1px solid #e3eaf5;border-radius:16px;padding:18px;margin:16px 0}
+body.dark .tool{background:#152238;border-color:#22304b}
+label{display:block;font-weight:700;font-size:13px;margin:10px 0 5px}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.tool button{background:#1d4ed8;color:#fff;padding:11px 16px;border-radius:10px;font-size:13.5px}
+.tool button.secondary{background:#64748b}
+.output{margin-top:12px;padding:12px;border-radius:10px;background:#e9f1ff;font-weight:600}
+body.dark .output{background:#182742;color:#dbe6f7}
+.done-box{margin-top:16px;background:#f0f6ff;border-radius:12px;padding:12px}
+body.dark .done-box{background:#152238}
+.done-box label{display:flex;gap:8px;align-items:center;margin:0;font-size:13.5px}
+.progress-wrap{max-width:1100px;margin:14px auto;padding:0 14px}
+.progress{background:#fff;border-radius:16px;padding:16px;box-shadow:0 8px 24px rgba(15,31,61,.08)}
+body.dark .progress{background:#101a2e}
+.bar{height:12px;background:#e3e9f4;border-radius:999px;overflow:hidden;margin-top:10px}
+body.dark .bar{background:#1d2a44}
+.fill{height:100%;width:0;background:linear-gradient(90deg,#1d4ed8,#f5b301)}
+code{background:#e8eef8;padding:2px 5px;border-radius:5px;font-size:12.5px}
+body.dark code{background:#1c2a45;color:#dbe6f7}
+footer{width:100%;text-align:center;padding:24px;color:#64748b;font-size:12.5px}
+@media(max-width:600px){header{padding:30px 14px 52px}.lesson{padding:16px}}
+</style></head><body>
+<header><div class="mono">A</div><div class="dedication">Personally designed for <b>Aditya</b></div><h1>Aditya <span>Excel Workbook</span></h1><p>A premium, interactive Excel learning workbook — from basics to advanced corporate skills.</p><div class="badges"><span>26 Lessons</span><span>100+ Concepts</span><span>Mobile Friendly</span></div></header>
+<div class="toolbar"><div class="toolbar-inner"><div class="search"><input id="search" placeholder="Search Excel topics..." oninput="searchLessons()"></div><button class="reset-btn" onclick="resetSearch()">Reset</button><button class="theme-btn" onclick="toggleTheme()">🌙</button></div></div>
+<div class="nav"><button class="nav-chip" data-id="welcome">🎓 Welcome</button><button class="nav-chip" data-id="basics">🧱 Excel Basics</button><button class="nav-chip" data-id="entry">⌨️ Data Entry</button><button class="nav-chip" data-id="shortcuts">⚡ Shortcut Keys</button><button class="nav-chip" data-id="basic">➕ Basic Formulas</button><button class="nav-chip" data-id="text">🔤 Text Formulas</button><button class="nav-chip" data-id="date">📅 Date & Time</button><button class="nav-chip" data-id="logic">🤔 IF & Logic</button><button class="nav-chip" data-id="lookup">🔍 Lookup Formulas</button><button class="nav-chip" data-id="conditional">📊 SUMIF & COUNTIF</button><button class="nav-chip" data-id="finance">💰 Financial Formulas</button><button class="nav-chip" data-id="clean">🧹 Data Cleaning</button><button class="nav-chip" data-id="format">🎨 Conditional Formatting</button><button class="nav-chip" data-id="tables">🗂️ Tables & Filters</button><button class="nav-chip" data-id="validation">✅ Data Validation</button><button class="nav-chip" data-id="pivot">📈 Pivot Tables</button><button class="nav-chip" data-id="charts">📊 Charts</button><button class="nav-chip" data-id="dashboard">🖥️ Dashboard</button><button class="nav-chip" data-id="powerquery">🔄 Power Query</button><button class="nav-chip" data-id="powerpivot">🧠 Power Pivot</button><button class="nav-chip" data-id="automation">🤖 Macros & VBA</button><button class="nav-chip" data-id="ai">🤖 AI in Excel</button><button class="nav-chip" data-id="corporate">🏢 Corporate Use</button><button class="nav-chip" data-id="projects">🏆 Projects</button><button class="nav-chip" data-id="interview">🎓 Interview Prep</button><button class="nav-chip" data-id="github">🚀 GitHub Guide</button><button class="nav-chip" data-id="notes">📝 My Notes</button></div>
+<div class="progress-wrap"><div class="progress"><h3 style="margin:0">Aditya’s Progress</h3><p id="ptext" style="margin:4px 0 0;color:#5c6a82">0 of 26 completed</p><div class="bar"><div id="fill" class="fill"></div></div></div></div>
+<main><section class="lesson" id="welcome"><div class="lesson-top"><div class="icon">🎓</div><div><h2>Welcome</h2><p>Your personal Excel learning journey</p></div></div><div class="body">
+<div class="profile-card"><div class="avatar">A</div><div><h2>Welcome, Aditya</h2><p>This workbook has been carefully designed as your personal Excel learning system — from complete basics to advanced corporate-level reporting, automation and analysis.</p></div></div>
+<div class="grid">
+<div class="card"><h3>🎯 Your Goal</h3><p>Build job-ready Excel skills for data entry, reporting, analysis, dashboards, automation and business decision-making.</p></div>
+<div class="card"><h3>📚 How to Study</h3><p>Complete one lesson at a time. Practice every formula in Excel before moving ahead.</p></div>
+<div class="card"><h3>💼 Corporate Use</h3><p>These skills are used in sales, HR, finance, operations, marketing and management reporting.</p></div>
+<div class="card"><h3>🚀 Portfolio</h3><p>Finish the projects and publish this workbook on GitHub.</p></div>
+</div>
+<div class="note"><b>Aditya’s Learning Rule:</b> Learn one concept, practice it immediately, then use it in a small real-life dataset.</div>
+</div><div class="done-box"><label><input type="checkbox" class="done" data-id="welcome"> Completed</label></div></section><section class="lesson" id="basics"><div class="lesson-top"><div class="icon">🧱</div><div><h2>Excel Basics</h2><p>Workbook, worksheet, cells, ranges and references</p></div></div><div class="body">
+<p>Excel is used for records, billing, payroll, sales tracking, planning and management reports.</p>
+<table><tr><th>Reference</th><th>Meaning</th><th>Example</th></tr>
+<tr><td>Relative</td><td>Changes when copied</td><td><code>=A1</code></td></tr>
+<tr><td>Absolute</td><td>Does not change when copied</td><td><code>=$A$1</code></td></tr>
+<tr><td>Mixed</td><td>Locks row or column</td><td><code>=$A1</code></td></tr></table>
+<div class="tip">Press <b>F4</b> to add or remove dollar signs.</div>
+</div><div class="done-box"><label><input type="checkbox" class="done" data-id="basics"> Completed</label></div></section><section class="lesson" id="entry"><div class="lesson-top"><div class="icon">⌨️</div><div><h2>Data Entry</h2><p>Professional data entry</p></div></div><div class="body">
+<div class="grid">
+<div class="card"><h4>AutoFill</h4><p>Type 1 and 2, select both, then drag.</p></div>
+<div class="card"><h4>Flash Fill</h4><p>Type one example and press <b>Ctrl + E</b>.</p></div>
+<div class="card"><h4>Freeze Panes</h4><p>View → Freeze Panes.</p></div>
+</div>
+<table><tr><th>Rule</th><th>Reason</th></tr>
+<tr><td>One record per row</td><td>Easy analysis</td></tr>
+<tr><td>No merged cells</td><td>Filters work properly</td></tr>
+<tr><td>Consistent spelling</td><td>Delhi and delhi are different</td></tr></table>
+</div><div class="done-box"><label><input type="checkbox" class="done" data-id="entry"> Completed</label></div></section><section class="lesson" id="shortcuts"><div class="lesson-top"><div class="icon">⚡</div><div><h2>Shortcut Keys</h2><p>Essential shortcuts</p></div></div><div class="body">
+<table><tr><th>Shortcut</th><th>Action</th></tr>
+<tr><td><code>Ctrl + S</code></td><td>Save</td></tr>
+<tr><td><code>Ctrl + Z / Y</code></td><td>Undo / Redo</td></tr>
+<tr><td><code>Ctrl + C / V</code></td><td>Copy / Paste</td></tr>
+<tr><td><code>Ctrl + Alt + V</code></td><td>Paste Special</td></tr>
+<tr><td><code>Ctrl + D</code></td><td>Fill down</td></tr>
+<tr><td><code>Ctrl + E</code></td><td>Flash Fill</td></tr>
+<tr><td><code>Ctrl + T</code></td><td>Create Table</td></tr>
+<tr><td><code>Ctrl + Shift + L</code></td><td>Filters</td></tr>
+<tr><td><code>Ctrl + ;</code></td><td>Today’s date</td></tr>
+<tr><td><code>Ctrl + 1</code></td><td>Format Cells</td></tr>
+<tr><td><code>Alt + =</code></td><td>AutoSum</td></tr>
+<tr><td><code>F2</code></td><td>Edit cell</td></tr>
+<tr><td><code>F4</code></td><td>Lock reference</td></tr>
+<tr><td><code>Ctrl + F / H</code></td><td>Find / Replace</td></tr>
+<tr><td><code>Alt + Enter</code></td><td>Line break</td></tr>
+<tr><td><code>Alt + F8</code></td><td>Run macro</td></tr>
+<tr><td><code>Alt + F11</code></td><td>VBA Editor</td></tr></table>
+</div><div class="done-box"><label><input type="checkbox" class="done" data-id="shortcuts"> Completed</label></div></section><section class="lesson" id="basic"><div class="lesson-top"><div class="icon">➕</div><div><h2>Basic Formulas</h2><p>SUM, AVERAGE, COUNT, MAX, MIN</p></div></div><div class="body">
+<table><tr><th>Formula</th><th>Syntax</th><th>Use</th></tr>
+<tr><td>SUM</td><td><code>=SUM(B2:B10)</code></td><td>Total</td></tr>
+<tr><td>AVERAGE</td><td><code>=AVERAGE(B2:B10)</code></td><td>Average</td></tr>
+<tr><td>COUNT</td><td><code>=COUNT(B2:B10)</code></td><td>Count numbers</td></tr>
+<tr><td>COUNTA</td><td><code>=COUNTA(A2:A20)</code></td><td>Count non-empty</td></tr>
+<tr><td>MAX</td><td><code>=MAX(B2:B10)</code></td><td>Highest</td></tr>
+<tr><td>MIN</td><td><code>=MIN(B2:B10)</code></td><td>Lowest</td></tr>
+<tr><td>ROUND</td><td><code>=ROUND(123.456,2)</code></td><td>Round</td></tr></table>
+<div class="tool"><h3>🧮 Basic Calculator</h3>
+<label>Number 1<input id="n1" type="number" value="10"></label>
+<label>Number 2<input id="n2" type="number" value="5"></label>
+<button onclick="basicCalc()">Calculate</button>
+<div id="basicOut" class="output"></div></div>
+</div><div class="done-box"><label><input type="checkbox" class="done" data-id="basic"> Completed</label></div></section><section class="lesson" id="text"><div class="lesson-top"><div class="icon">🔤</div><div><h2>Text Formulas</h2><p>Clean and manage text</p></div></div><div class="body">
+<table><tr><th>Formula</th><th>Syntax</th><th>Example</th></tr>
+<tr><td>LEFT</td><td><code>=LEFT(A2,3)</code></td><td>First letters</td></tr>
+<tr><td>RIGHT</td><td><code>=RIGHT(A2,3)</code></td><td>Last letters</td></tr>
+<tr><td>TRIM</td><td><code>=TRIM(A2)</code></td><td>Remove spaces</td></tr>
+<tr><td>PROPER</td><td><code>=PROPER(A2)</code></td><td>Capitalized</td></tr>
+<tr><td>CONCAT</td><td><code>=CONCAT(A2," ",B2)</code></td><td>Join text</td></tr>
+<tr><td>TEXTSPLIT</td><td><code>=TEXTSPLIT(A2,",")</code></td><td>Split text</td></tr></table>
+<div class="tool"><h3>🧼 Text Cleaner</h3>
+<label>Enter text<input id="txt" value="  aditya   sharma "></label>
+<button onclick="cleanText()">Clean</button>
+<div id="txtOut" class="output"></div></div>
+</div><div class="done-box"><label><input type="checkbox" class="done" data-id="text"> Completed</label></div></section><section class="lesson" id="date"><div class="lesson-top"><div class="icon">📅</div><div><h2>Date & Time</h2><p>Age, tenure and deadlines</p></div></div><div class="body">
+<table><tr><th>Formula</th><th>Syntax</th><th>Use</th></tr>
+<tr><td>TODAY</td><td><code>=TODAY()</code></td><td>Today</td></tr>
+<tr><td>DATEDIF</td><td><code>=DATEDIF(A2,TODAY(),"Y")</code></td><td>Age</td></tr>
+<tr><td>NETWORKDAYS</td><td><code>=NETWORKDAYS(A2,B2)</code></td><td>Working days</td></tr>
+<tr><td>EOMONTH</td><td><code>=EOMONTH(A2,0)</code></td><td>Month end</td></tr></table>
+<div class="tool"><h3>🎂 Age Calculator</h3>
+<label>Date of Birth<input id="dob" type="date"></label>
+<button onclick="calcAge()">Calculate</button>
+<div id="ageOut" class="output"></div></div>
+</div><div class="done-box"><label><input type="checkbox" class="done" data-id="date"> Completed</label></div></section><section class="lesson" id="logic"><div class="lesson-top"><div class="icon">🤔</div><div><h2>IF & Logic</h2><p>Automatic decisions</p></div></div><div class="body">
+<table><tr><th>Formula</th><th>Syntax</th></tr>
+<tr><td>IF</td><td><code>=IF(B2>=40,"Pass","Fail")</code></td></tr>
+<tr><td>IFS</td><td><code>=IFS(B2>=90,"A",B2>=75,"B",TRUE,"C")</code></td></tr>
+<tr><td>AND</td><td><code>=AND(B2>=40,C2>=40)</code></td></tr>
+<tr><td>IFERROR</td><td><code>=IFERROR(A2/B2,0)</code></td></tr></table>
+<div class="tool"><h3>🎯 Result Checker</h3>
+<label>Marks<input id="marks" type="number" value="45"></label>
+<button onclick="checkResult()">Check</button>
+<div id="logicOut" class="output"></div></div>
+</div><div class="done-box"><label><input type="checkbox" class="done" data-id="logic"> Completed</label></div></section><section class="lesson" id="lookup"><div class="lesson-top"><div class="icon">🔍</div><div><h2>Lookup Formulas</h2><p>Find data quickly</p></div></div><div class="body">
+<table><tr><th>Formula</th><th>Syntax</th></tr>
+<tr><td>VLOOKUP</td><td><code>=VLOOKUP(A2,Table,3,FALSE)</code></td></tr>
+<tr><td>XLOOKUP</td><td><code>=XLOOKUP(A2,Lookup,Return,"Not Found")</code></td></tr>
+<tr><td>INDEX MATCH</td><td><code>=INDEX(C:C,MATCH(A2,A:A,0))</code></td></tr>
+<tr><td>FILTER</td><td><code>=FILTER(A2:C100,B2:B100="Delhi")</code></td></tr></table>
+</div><div class="done-box"><label><input type="checkbox" class="done" data-id="lookup"> Completed</label></div></section><section class="lesson" id="conditional"><div class="lesson-top"><div class="icon">📊</div><div><h2>SUMIF & COUNTIF</h2><p>Conditional analysis</p></div></div><div class="body">
+<table><tr><th>Formula</th><th>Syntax</th></tr>
+<tr><td>SUMIF</td><td><code>=SUMIF(A:A,"North",C:C)</code></td></tr>
+<tr><td>SUMIFS</td><td><code>=SUMIFS(C:C,A:A,"North",B:B,">1000")</code></td></tr>
+<tr><td>COUNTIF</td><td><code>=COUNTIF(A:A,"Paid")</code></td></tr>
+<tr><td>COUNTIFS</td><td><code>=COUNTIFS(A:A,"Delhi",B:B,">1000")</code></td></tr></table>
+</div><div class="done-box"><label><input type="checkbox" class="done" data-id="conditional"> Completed</label></div></section><section class="lesson" id="finance"><div class="lesson-top"><div class="icon">💰</div><div><h2>Financial Formulas</h2><p>EMI and investments</p></div></div><div class="body">
+<table><tr><th>Formula</th><th>Syntax</th><th>Use</th></tr>
+<tr><td>PMT</td><td><code>=PMT(rate,nper,pv)</code></td><td>EMI</td></tr>
+<tr><td>FV</td><td><code>=FV(rate,nper,pmt)</code></td><td>Future value</td></tr>
+<tr><td>NPV</td><td><code>=NPV(rate,values)</code></td><td>Net present value</td></tr></table>
+<div class="tool"><h3>🏦 EMI Calculator</h3>
+<label>Loan Amount<input id="loan" type="number" value="500000"></label>
+<label>Rate (%)<input id="rate" type="number" value="9"></label>
+<label>Years<input id="years" type="number" value="5"></label>
+<button onclick="calcEMI()">Calculate</button>
+<div id="emiOut" class="output"></div></div>
+</div><div class="done-box"><label><input type="checkbox" class="done" data-id="finance"> Completed</label></div></section><section class="lesson" id="clean"><div class="lesson-top"><div class="icon">🧹</div><div><h2>Data Cleaning</h2><p>Fix messy data</p></div></div><div class="body">
+<table><tr><th>Problem</th><th>Solution</th></tr>
+<tr><td>Extra spaces</td><td><code>=TRIM(A2)</code></td></tr>
+<tr><td>Wrong case</td><td><code>=PROPER(A2)</code></td></tr>
+<tr><td>Duplicates</td><td>Data → Remove Duplicates</td></tr></table>
+</div><div class="done-box"><label><input type="checkbox" class="done" data-id="clean"> Completed</label></div></section><section class="lesson" id="format"><div class="lesson-top"><div class="icon">🎨</div><div><h2>Conditional Formatting</h2><p>Highlight data</p></div></div><div class="body">
+<div class="example">Highlight overdue rows: <code>=$E2="Overdue"</code></div>
+</div><div class="done-box"><label><input type="checkbox" class="done" data-id="format"> Completed</label></div></section><section class="lesson" id="tables"><div class="lesson-top"><div class="icon">🗂️</div><div><h2>Tables & Filters</h2><p>Organize data</p></div></div><div class="body">
+<table><tr><th>Feature</th><th>Use</th></tr>
+<tr><td>Excel Table</td><td><code>Ctrl + T</code></td></tr>
+<tr><td>Filter</td><td><code>Ctrl + Shift + L</code></td></tr></table>
+</div><div class="done-box"><label><input type="checkbox" class="done" data-id="tables"> Completed</label></div></section><section class="lesson" id="validation"><div class="lesson-top"><div class="icon">✅</div><div><h2>Data Validation</h2><p>Prevent wrong entry</p></div></div><div class="body">
+<table><tr><th>Type</th><th>Example</th></tr>
+<tr><td>Drop-down</td><td>Yes, No, Pending</td></tr>
+<tr><td>Whole number</td><td>Age 18–60</td></tr></table>
+</div><div class="done-box"><label><input type="checkbox" class="done" data-id="validation"> Completed</label></div></section><section class="lesson" id="pivot"><div class="lesson-top"><div class="icon">📈</div><div><h2>Pivot Tables</h2><p>Summarize data</p></div></div><div class="body">
+<div class="steps"><div class="step"><b>1</b><p>Clean data.</p></div><div class="step"><b>2</b><p>Insert → PivotTable.</p></div><div class="step"><b>3</b><p>Drag fields.</p></div></div>
+</div><div class="done-box"><label><input type="checkbox" class="done" data-id="pivot"> Completed</label></div></section><section class="lesson" id="charts"><div class="lesson-top"><div class="icon">📊</div><div><h2>Charts</h2><p>Visual reports</p></div></div><div class="body">
+<table><tr><th>Chart</th><th>Use</th></tr>
+<tr><td>Column</td><td>Compare categories</td></tr>
+<tr><td>Line</td><td>Trends</td></tr>
+<tr><td>Pie</td><td>Part of total</td></tr></table>
+</div><div class="done-box"><label><input type="checkbox" class="done" data-id="charts"> Completed</label></div></section><section class="lesson" id="dashboard"><div class="lesson-top"><div class="icon">🖥️</div><div><h2>Dashboard</h2><p>Professional reports</p></div></div><div class="body">
+<div class="grid"><div class="card"><h4>KPI Cards</h4><p>Sales, profit, growth.</p></div><div class="card"><h4>Slicers</h4><p>Easy filtering.</p></div></div>
+</div><div class="done-box"><label><input type="checkbox" class="done" data-id="dashboard"> Completed</label></div></section><section class="lesson" id="powerquery"><div class="lesson-top"><div class="icon">🔄</div><div><h2>Power Query</h2><p>Automate cleaning</p></div></div><div class="body">
+<table><tr><th>Task</th><th>Action</th></tr>
+<tr><td>Import</td><td>Data → Get Data</td></tr>
+<tr><td>Refresh</td><td>Data → Refresh All</td></tr></table>
+</div><div class="done-box"><label><input type="checkbox" class="done" data-id="powerquery"> Completed</label></div></section><section class="lesson" id="powerpivot"><div class="lesson-top"><div class="icon">🧠</div><div><h2>Power Pivot</h2><p>Large data analysis</p></div></div><div class="body">
+<table><tr><th>Concept</th><th>Example</th></tr>
+<tr><td>Measure</td><td><code>Total Sales := SUM(Sales[Amount])</code></td></tr></table>
+</div><div class="done-box"><label><input type="checkbox" class="done" data-id="powerpivot"> Completed</label></div></section><section class="lesson" id="automation"><div class="lesson-top"><div class="icon">🤖</div><div><h2>Macros & VBA</h2><p>Automate tasks</p></div></div><div class="body">
+<div class="example"><code>Sub BoldHeadings()<br>Rows(1).Font.Bold = True<br>End Sub</code></div>
+</div><div class="done-box"><label><input type="checkbox" class="done" data-id="automation"> Completed</label></div></section><section class="lesson" id="ai"><div class="lesson-top"><div class="icon">🤖</div><div><h2>AI in Excel</h2><p>Learn faster</p></div></div><div class="body">
+<table><tr><th>Use</th><th>Prompt</th></tr>
+<tr><td>Formula</td><td>“Create a formula to sum North sales.”</td></tr></table>
+</div><div class="done-box"><label><input type="checkbox" class="done" data-id="ai"> Completed</label></div></section><section class="lesson" id="corporate"><div class="lesson-top"><div class="icon">🏢</div><div><h2>Corporate Use</h2><p>Excel in companies</p></div></div><div class="body">
+<table><tr><th>Department</th><th>Use</th></tr>
+<tr><td>Sales</td><td>Sales tracking</td></tr>
+<tr><td>HR</td><td>Attendance and payroll</td></tr>
+<tr><td>Finance</td><td>Budget and loans</td></tr></table>
+</div><div class="done-box"><label><input type="checkbox" class="done" data-id="corporate"> Completed</label></div></section><section class="lesson" id="projects"><div class="lesson-top"><div class="icon">🏆</div><div><h2>Projects</h2><p>Portfolio work</p></div></div><div class="body">
+<div class="grid"><div class="card"><h4>Sales Dashboard</h4><p>PivotTables and KPIs.</p></div><div class="card"><h4>Expense Tracker</h4><p>Monthly analysis.</p></div></div>
+</div><div class="done-box"><label><input type="checkbox" class="done" data-id="projects"> Completed</label></div></section><section class="lesson" id="interview"><div class="lesson-top"><div class="icon">🎓</div><div><h2>Interview Prep</h2><p>Excel questions</p></div></div><div class="body">
+<table><tr><th>Question</th><th>Answer</th></tr>
+<tr><td>XLOOKUP?</td><td>Modern lookup, searches both directions.</td></tr></table>
+</div><div class="done-box"><label><input type="checkbox" class="done" data-id="interview"> Completed</label></div></section><section class="lesson" id="github"><div class="lesson-top"><div class="icon">🚀</div><div><h2>GitHub Guide</h2><p>Publish portfolio</p></div></div><div class="body">
+<div class="steps"><div class="step"><b>1</b><p>Create repository.</p></div><div class="step"><b>2</b><p>Upload index.html.</p></div><div class="step"><b>3</b><p>Enable Pages.</p></div></div>
+</div><div class="done-box"><label><input type="checkbox" class="done" data-id="github"> Completed</label></div></section><section class="lesson" id="notes"><div class="lesson-top"><div class="icon">📝</div><div><h2>My Notes</h2><p>Save notes</p></div></div><div class="body">
+<div class="tool"><h3>📝 Aditya’s Notes</h3>
+<textarea id="notes" rows="8"></textarea>
+<div class="btn-row"><button onclick="saveNotes()">Save</button><button class="secondary" onclick="clearNotes()">Clear</button></div>
+<div id="noteOut" class="output"></div></div>
+</div><div class="done-box"><label><input type="checkbox" class="done" data-id="notes"> Completed</label></div></section></main>
+<footer>Aditya Excel Workbook • Designed for <b>Aditya</b></footer>
+<script>
+const ids=["welcome", "basics", "entry", "shortcuts", "basic", "text", "date", "logic", "lookup", "conditional", "finance", "clean", "format", "tables", "validation", "pivot", "charts", "dashboard", "powerquery", "powerpivot", "automation", "ai", "corporate", "projects", "interview", "github", "notes"];
+function show(id){document.querySelectorAll('.lesson').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav-chip').forEach(b=>b.classList.toggle('active',b.dataset.id===id));window.scrollTo({top:0,behavior:'smooth'});localStorage.setItem('activeLesson',id)}
+function searchLessons(){const q=document.getElementById('search').value.toLowerCase();document.querySelectorAll('.lesson').forEach(s=>{s.style.display=(!q||s.innerText.toLowerCase().includes(q))?'block':'none'})}
+function resetSearch(){document.getElementById('search').value='';document.querySelectorAll('.lesson').forEach(s=>s.style.display='');show('welcome')}
+function toggleTheme(){document.body.classList.toggle('dark');localStorage.setItem('theme',document.body.classList.contains('dark')?'dark':'light')}
+function basicCalc(){const a=+document.getElementById('n1').value||0,b=+document.getElementById('n2').value||0;document.getElementById('basicOut').innerHTML=`SUM: ${a+b} • AVERAGE: ${(a+b)/2} • MAX: ${Math.max(a,b)} • MIN: ${Math.min(a,b)}`}
+function cleanText(){const v=document.getElementById('txt').value;const p=v.trim().replace(/\b\w/g,c=>c.toUpperCase());document.getElementById('txtOut').innerHTML=`TRIM: ${v.trim()}<br>PROPER: ${p}<br>UPPER: ${v.trim().toUpperCase()}`}
+function calcAge(){const v=document.getElementById('dob').value;if(!v)return;const d=new Date(v),t=new Date();let a=t.getFullYear()-d.getFullYear();const m=t.getMonth()-d.getMonth();if(m<0||(m===0&&t.getDate()<d.getDate()))a--;document.getElementById('ageOut').innerHTML=`Age: <b>${a} years</b>`}
+function checkResult(){const m=+document.getElementById('marks').value||0;let g='Fail';if(m>=90)g='A';else if(m>=75)g='B';else if(m>=60)g='C';else if(m>=33)g='D';document.getElementById('logicOut').innerHTML=m>=33?`Pass — ${g}`:'Fail'}
+function calcEMI(){const p=+document.getElementById('loan').value||0,r=(+document.getElementById('rate').value||0)/1200,n=(+document.getElementById('years').value||0)*12;const e=r>0?(p*r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1):p/n;document.getElementById('emiOut').innerHTML=`EMI: ₹${e.toFixed(2)}<br>Total: ₹${(e*n).toFixed(2)}<br>Interest: ₹${(e*n-p).toFixed(2)}`}
+function saveNotes(){localStorage.setItem('notes',document.getElementById('notes').value);document.getElementById('noteOut').textContent='Saved.'}
+function clearNotes(){localStorage.removeItem('notes');document.getElementById('notes').value='';document.getElementById('noteOut').textContent='Cleared.'}
+function updateProgress(){const b=[...document.querySelectorAll('.done')];const d=b.filter(x=>x.checked).length;const p=Math.round(d/b.length*100);document.getElementById('fill').style.width=p+'%';document.getElementById('ptext').textContent=`${d} of ${b.length} completed (${p}%)`;localStorage.setItem('progress',JSON.stringify(b.map(x=>x.checked)))}
+document.addEventListener('DOMContentLoaded',()=>{if(localStorage.getItem('theme')==='dark')document.body.classList.add('dark');const s=JSON.parse(localStorage.getItem('progress')||'[]');document.querySelectorAll('.done').forEach((x,i)=>{x.checked=!!s[i];x.addEventListener('change',updateProgress)});updateProgress();document.querySelectorAll('.nav-chip').forEach(b=>b.addEventListener('click',()=>show(b.dataset.id)));const n=localStorage.getItem('notes');if(n)document.getElementById('notes').value=n;show(localStorage.getItem('activeLesson')||'welcome')});
+</script></body></html>
